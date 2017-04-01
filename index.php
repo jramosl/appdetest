@@ -1,21 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>PHP Starter Application</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<link rel="stylesheet" href="style.css" />
-</head>
-<body>
-	<table>
-		<tr>
-			<td style='width: 30%;'>
-				<img class = 'newappIcon' src='images/newapp-icon.png'>
-			</td>
-			<td>
-				<h1 id = "message"><?php echo "Hello World!"; ?></h1>
-				<p class='description'></p> Thanks for creating a <span class="blue">PHP Starter Application</span>.
-			</td>
-		</tr>
-	</table>
-</body>
-</html>
+<?PHP
+$link = mysqli_connect('us-cdbr-iron-east-03.cleardb.net', 'bb87881e7a2166', 'dc7e8234') or die('No se pudo conectar: ' . mysqli_error());
+$conexion = mysqli_select_db($link, "ad_643556e1444d091") or die('No se pudo seleccionar la base de datos');
+$result = mysqli_query($link, 'SELECT username,pass FROM usuario where username="admin"');
+$rows = mysqli_num_rows($result);
+echo $rows;
+?>
